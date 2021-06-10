@@ -1,0 +1,24 @@
+<div class="d-flex align-self-center">
+  <div class="iq-email-sender-info">
+    <div class="iq-checkbox-mail">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input">
+        <label class="custom-control-label"></label>
+      </div>
+    </div>
+    <span [classList]="'ri-star-line iq-star-toggle' + (item.favorite ?  ' text-warning ' : '')"></span>
+    <a href="javascript: void(0);" class="iq-email-title">{{ item.user }}</a>
+  </div>
+  <div class="iq-email-content">
+    <a href="javascript: void(0);" class="iq-email-subject">{{ item.subject }} &nbsp;–&nbsp;
+      <span>{{ item.description }}</span>
+    </a>
+    <div class="iq-email-date">{{ item.emailTime }}</div>
+  </div>
+  <ul class="iq-social-media">
+    <li><a href="javascript:void(0);"><i class="ri-delete-bin-2-line"></i></a></li>
+    <li><a href="javascript:void(0);"><i class="ri-mail-line"></i></a></li>
+    <li><a href="javascript:void(0);"><i class="ri-file-list-2-line"></i></a></li>
+    <li><a href="javascript:void(0);"><i class="ri-time-line"></i></a></li>
+  </ul>
+</div>

@@ -1,0 +1,17 @@
+<div class="sign-in-from">
+  <h1 class="mb-0">Sign Up</h1>
+  <p>Enter your email address and password to access admin panel.</p>
+  <tabset type="pills" [justified] = true>
+    <tab heading="JWT" id="tab20">
+      <app-sign-up-form authType="jwt"></app-sign-up-form>
+    </tab>
+    <tab heading="Firebase" id="tab21">
+      <app-sign-up-form authType="firebase"></app-sign-up-form>
+    </tab>
+    <tab heading="OAuth0" id="tab22">
+      <div class="height-300 pb-4 d-flex justify-content-center">
+        <a href="javascript:void(0)" (click)="auth0.login()" class="btn btn-danger align-self-center"> OAuth0 Login </a>
+      </div>
+    </tab>
+  </tabset>
+</div>

@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-6">
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Popovers</h4>
+     </div>
+     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <button type="button" class="btn btn-lg btn-danger" placement="right" title="Popover title" popover="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Dismiss on next click</h4>
+     </div>
+     <p>Use the <code>focus</code> trigger to dismiss popovers on the user’s next click of a different element than the toggle element.</p>
+      <a tabindex="0" class="btn btn-danger" triggers="focus" title="Dismissible popover" popover="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Disabled elements</h4>
+     </div>
+     <p>Elements with the <code>disabled</code> attribute aren’t interactive, meaning users cannot hover or click them to trigger a popover (or tooltip). As a workaround, you’ll want to trigger the popover from a wrapper <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> and override the <code>pointer-events</code> on the disabled element.</p>
+      <span class="d-inline-block" popover="Disabled popover" placement="right">
+      <button class="btn btn-primary" style="pointer-events: none;" disabled>Disabled button</button>
+      </span>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Hover elements</h4>
+     </div>
+     <p>For disabled popover triggers, you may also prefer <code>data-trigger="hover"</code> so that the popover appears as immediate visual feedback to your users as they may not expect to <em>click</em> on a disabled element.</p>
+      <span class="d-inline-block" triggers="mouseenter:mouseleave" placement="right" popover="Disabled popover">
+      <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+      </span>
+    </app-iq-card>
+
+  </div>
+  <div class="col-sm-12 col-lg-6">
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Four directions</h4>
+     </div>
+     <p>Four options are available: top, right, bottom, and left aligned.</p>
+      <button type="button" class="btn btn-secondary" placement="top" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on top
+      </button>
+      <button type="button" class="btn btn-secondary ml-1" placement="right" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on right
+      </button>
+      <button type="button" class="btn btn-secondary ml-1" placement="bottom" popover="Vivamus
+        sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on bottom
+      </button>
+      <button type="button" class="btn btn-secondary mt-1" placement="left"  popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on left
+      </button>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Popovers With Color</h4>
+     </div>
+     <p>Four options are available: top, right, bottom, and left aligned.</p>
+      <button type="button" class="btn btn-primary" placement="top" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on top
+      </button>
+      <button type="button" class="btn btn-success ml-1" placement="right" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on right
+      </button>
+      <button type="button" class="btn btn-danger ml-1" placement="bottom" popover="Vivamus
+        sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on bottom
+      </button>
+      <button type="button" class="btn btn-info mt-1" placement="left" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on left
+      </button>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Popovers With Color</h4>
+     </div>
+     <p>Four options are available: top, right, bottom, and left aligned.</p>
+      <button type="button" class="btn iq-bg-primary" placement="top" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on top
+      </button>
+      <button type="button" class="btn iq-bg-success ml-1" placement="right" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on right
+      </button>
+      <button type="button" class="btn iq-bg-danger ml-1" placement="bottom" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on bottom
+      </button>
+      <button type="button" class="btn iq-bg-info mt-1" placement="left" popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+      Popover on left
+      </button>
+    </app-iq-card>
+  </div>
+</div>

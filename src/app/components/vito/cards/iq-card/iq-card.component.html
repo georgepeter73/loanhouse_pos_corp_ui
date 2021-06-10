@@ -1,0 +1,18 @@
+<div [ngClass]="cardClass">
+  <!-- card image or extra content here -->
+  <ng-content select="[card-top]"></ng-content>
+  <!-- card header content here -->
+  <div [ngClass]="cardHeaderClass" *ngIf="isCardHeader">
+    <ng-content select="[card-header]"></ng-content>
+  </div>
+  <!-- card body content here  -->
+  <div [ngClass]="cardBodyClass" *ngIf="isCardBody">
+    <ng-content></ng-content>
+  </div>
+  <!-- card footer content here  -->
+  <div [ngClass]="cardFooterClass" *ngIf="isCardFooter">
+    <ng-content select="[card-footer]"></ng-content>
+  </div>
+  <!-- card extra content here  -->
+  <ng-content select="[card-bottom]"></ng-content>
+</div>

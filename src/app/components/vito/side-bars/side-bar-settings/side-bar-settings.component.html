@@ -1,0 +1,54 @@
+<div  class="{{shouldShow ? 'right-sidebar-mini right-sidebar' : 'right-sidebar-mini'}} " >
+  <div class="right-sidebar-toggle top-50 setting-toggle iq-card" (click)="openSettingsBar()">
+    <i class="ri-sound-module-fill font-size-18 text-primary"></i>
+  </div>
+  <div class="right-sidebar-panel p-0">
+    <div class="shadow-none iq-card h-100 iq-border-radius-0">
+      <div class="iq-card-header d-flex justify-content-between ">
+        <div class="iq-header-title">
+          <h4 >Color Customizer</h4>
+        </div>
+        <div class="iq-card-header-toolbar d-flex align-items-center">
+          <button type="button" class="btn btn-primary btn-sm" (click)="reset()">Reset</button>
+        </div>
+      </div>
+      <div class="card-body iq-card-body ">
+        <div class="row">
+          <div class="justify-content-between col-12">
+            <h4 class="text-left mb-2">Theme Colors</h4>
+            <div class="text-center">
+              <div class="d-inline-flex justify-content-between" *ngFor="let themeColor of themeColors;">
+                <div class="p-3 mx-1" [ngStyle]="{'background': themeColor.primary, 'borderRadius': '4px'}"
+                     (click)="clickThemeColor(themeColor)"
+                     [ngClass]="(themeColor.primary === selectedColor ? 'selected' : '')">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="border mt-4 mb-4 w-100"></div>
+          <div class="justify-content-between col-12"><h4 class="text-left mb-2">Color Mode</h4>
+            <div class="text-center d-flex">
+              <img src="./assets/images/customizer/customizer-01.png"
+                   alt="light" class="img-fluid height-150 ml-2"
+                   (click)="clickThemeMode(false)"
+                   [ngClass]="(!isDark ? 'selected' : '')">
+              <img src="./assets/images/customizer/customizer-03.png"
+                   alt="dark" class="img-fluid ml-2 height-150"
+                   (click)="clickThemeMode(true)"
+                   [ngClass]="(isDark ? 'selected' : '')">
+            </div>
+          </div>
+          <div class="border mt-4 mb-4 w-100"></div>
+          <div class="justify-content-between d-flex col-12"><label class="mb-0">RTL</label>
+            <div class="custom-switch-color custom-control custom-control-inline custom-switch">
+              <input color="primary" type="checkbox" name="check-button" autocomplete="off"
+                     class="custom-control-input" value="true" id="theme_rtl"
+                     checked="{{ isRTL ? 'true' : '' }}" (click)="clickThemeRTL(!isRTL)" />
+              <label class="custom-control-label" for="theme_rtl"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

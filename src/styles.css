@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.owl-carousel .owl-dot {
+  display: inline-block;
+}
+.iq-email-list .iq-email-ui li a{
+  padding: .5rem 1rem !important;
+}
+.ng-select2 select {
+  width: 100%;
+  padding: 5px;
+}
+
+:root {
+  --amplify-primary-color: #E07AF3;
+  --amplify-primary-tint: #1768ac;
+  --amplify-primary-shade: #1768ac;
+}

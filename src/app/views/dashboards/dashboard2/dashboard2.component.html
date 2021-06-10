@@ -1,0 +1,319 @@
+<div class="row row-eq-height">
+  <!-- Content Top Banner Start -->
+  <div class="col-md-12 col-lg-8">
+    <app-iq-card cardClass="iq-card" [isCardHeader]=false>
+      <div card-bottom id="chart" style="height: 350px;"></div>
+    </app-iq-card>
+  </div>
+  <div class="col-md-12 col-lg-4">
+    <app-iq-card [isCardHeader]=false cardBodyClass="card-body iq-card-body smaill-calender-home p-3">
+      <input
+        type="text"
+        mwlFlatpickr
+        class="d-none"
+        [altInput]=false [inline]=true>
+    </app-iq-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <app-iq-card [isCardHeader]=false>
+      <div class="text-center"><span>AVG Impressions</span></div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="value-box">
+          <h2 class="mb-0"><span class="counter"><b>2.648</b></span></h2>
+          <p class="mb-0 text-secondary line-height"> 26.84% </p>
+        </div>
+        <div class="iq-iconbox iq-bg-danger">
+          <i class="ri-arrow-down-line"></i>
+        </div>
+      </div>
+      <progressbar class="iq-progress-bar mt-5" value="80" type='danger' ></progressbar>
+    </app-iq-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <app-iq-card [isCardHeader]=false>
+      <div class="text-center"><span>AVG Engagements Rate</span></div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="value-box">
+          <h2 class="mb-0"><span class="counter"><b>89.6</b></span></h2>
+          <p class="mb-0 pl-2 text-secondary line-height"> 8.64% </p>
+        </div>
+        <div class="iq-iconbox iq-bg-info">
+          <i class="ri-arrow-up-line"></i>
+        </div>
+      </div>
+      <progressbar class="iq-progress-bar mt-5" value="50" type='info' ></progressbar>
+    </app-iq-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <app-iq-card [isCardHeader]=false>
+      <div class="text-center"><span>AVG Reach</span></div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="value-box">
+          <h2 class="mb-0"><span class="counter"><b>826</b></span></h2>
+          <p class="mb-0 pl-2 text-secondary line-height"> 0.86% </p>
+        </div>
+        <div class="iq-iconbox iq-bg-success">
+          <i class="ri-arrow-up-line"></i>
+        </div>
+      </div>
+      <progressbar class="iq-progress-bar mt-5" value="66" type='success' ></progressbar>
+    </app-iq-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <app-iq-card [isCardHeader]=false>
+      <div class="text-center"><span>AVG Transport</span></div>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="value-box">
+          <h2 class="mb-0"><span class="counter"><b>7.55</b></span></h2>
+          <p class="mb-0 pl-2 text-secondary line-height"> 25.5% </p>
+        </div>
+        <div class="iq-iconbox iq-bg-primary">
+          <i class="ri-arrow-up-line"></i>
+        </div>
+      </div>
+      <progressbar class="iq-progress-bar mt-5" value="70" type='primary' ></progressbar>
+    </app-iq-card>
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-lg-12">
+        <app-iq-card>
+          <div card-header class="iq-header-title">
+            <h4 class="card-title">Frequent Post List</h4>
+          </div>
+          <div card-header class="iq-card-header-toolbar d-flex align-items-center">
+            <div class="dropdown">
+              <span class="dropdown-toggle text-primary" id="dropdownMenuButton5" data-toggle="dropdown">
+                <i class="ri-more-2-fill"></i>
+              </span>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill mr-2"></i>View</a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-printer-fill mr-2"></i>Print</a>
+                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-file-download-fill mr-2"></i>Download</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table mb-0 table-borderless">
+              <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Delivery</th>
+                <th scope="col">Status</th>
+                <th scope="col">Location</th>
+                <th scope="col">Progress</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let row of serverData; let i=index;">
+                <td>{{row.id}}</td>
+                <td>{{row.since_date}}</td>
+                <td>{{row.reboot_date}}</td>
+                <td>
+                  <div class="badge badge-pill badge-{{getServerStatus(row.status)}}">{{row.status}}</div>
+                </td>
+                <td>{{row.location}}</td>
+                <td>
+                  <progressbar class="iq-progress-bar" [value]="row.progress" [type]="getServerStatus(row.status)" ></progressbar>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </app-iq-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <app-iq-card cardClass="iq-card wow fadeInUp" data-wow-delay="0.8s">
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Post Summary</h4>
+      </div>
+      <div card-header class="iq-card-header-toolbar d-flex align-items-center">
+        <div class="dropdown">
+          <span class="dropdown-toggle text-primary" id="dropdownMenuButton4" data-toggle="dropdown">
+           <i class="ri-more-fill"></i>
+           </span>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton4">
+            <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
+            <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+            <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+            <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
+            <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+          </div>
+        </div>
+      </div>
+      <p class="mb-0">Total of Likes $ Comments</p>
+      <div class="m-0 p-0 d-flex flex-wrap align-items-center justify-content-between">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center  mt-4">
+            <div class="iq-scale-border mr-3 like-block"></div>
+            <div class="iq-scale-content">
+              <h6>2.864</h6>
+              <p class="mb-0">Likes</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center  mt-4">
+            <div class="iq-scale-border mr-3 comment-block"></div>
+            <div class="iq-scale-content">
+              <h6>624</h6>
+              <p class="mb-0">Comments</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mt-4">
+            <div class="iq-scale-border mr-3 share-block"></div>
+            <div class="iq-scale-content">
+              <h6>1.75</h6>
+              <p class="mb-0">Share</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mt-4">
+            <div class="iq-scale-border mr-3 repost-block"></div>
+            <div class="iq-scale-content">
+              <h6>345</h6>
+              <p class="mb-0">Repost</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mt-4">
+            <div class="iq-scale-border mr-3 view-block"></div>
+            <div class="iq-scale-content">
+              <h6>845</h6>
+              <p class="mb-0">Views</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mt-4">
+            <div class="iq-scale-border mr-3 post-block"></div>
+            <div class="iq-scale-content">
+              <h6>1200</h6>
+              <p class="mb-0">Posts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-iq-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+   <app-iq-card>
+     <div card-header class="iq-header-title">
+       <h4 class="card-title">Best Performing Posts</h4>
+     </div>
+     <ngx-slick-carousel id="post-slider" [config]="slideConfig">
+       <li ngxSlickItem class="d-flex align-items-center">
+         <div class="post-image">
+           <a href="javascript:void();">
+             <img src="assets/images/page-img/p-2.jpg" alt="post-image" class="img-fluid rounded">
+           </a>
+         </div>
+         <div class="post-content pl-3">
+           <h4>How to Like Posts</h4>
+           <h3 class="mt-2 mb-2">89.64%</h3>
+           <div class="iq-progress-bar mb-3">
+             <span class="bg-primary" data-percent="90"></span>
+           </div>
+           <div class="text-center d-flex align-items-center justify-content-between">
+             <div class="iq-post-likes text-left">
+               <a href="#" class="text-secondary"><i class="ri-heart-line mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-comments text-left ml-2 mr-2">
+               <a href="#" class="text-secondary"><i class="ri-chat-1-fill mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-save text-left">
+               <a href="#" class="text-secondary"><i class="ri-save-line mr-2"></i>6.2K</a>
+             </div>
+           </div>
+         </div>
+       </li>
+       <li ngxSlickItem class="d-flex align-items-center">
+         <div class="post-image">
+           <a href="javascript:void();">
+             <img src="assets/images/page-img/p-3.jpg" alt="post-image" class="img-fluid rounded">
+           </a>
+         </div>
+         <div class="post-content pl-3">
+           <h4>How to Comments Posts</h4>
+           <h3 class="mt-2 mb-2">89.64%</h3>
+           <div class="iq-progress-bar mb-3">
+             <span class="bg-primary" data-percent="90"></span>
+           </div>
+           <div class="text-center d-flex align-items-center justify-content-between">
+             <div class="iq-post-likes text-left">
+               <a href="#" class="text-secondary"><i class="ri-heart-line mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-comments text-left ml-2 mr-2">
+               <a href="#" class="text-secondary"><i class="ri-chat-1-fill mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-save text-left">
+               <a href="#" class="text-secondary"><i class="ri-save-line mr-2"></i>6.2K</a>
+             </div>
+           </div>
+         </div>
+       </li>
+       <li ngxSlickItem class="d-flex align-items-center">
+         <div class="post-image">
+           <a href="javascript:void();">
+             <img src="assets/images/page-img/p-4.jpg" alt="post-image" class="img-fluid rounded">
+           </a>
+         </div>
+         <div class="post-content pl-3">
+           <h4>How to Share Posts</h4>
+           <h3 class="mt-2 mb-2">89.64%</h3>
+           <div class="iq-progress-bar mb-3">
+             <span class="bg-primary" data-percent="90"></span>
+           </div>
+           <div class="text-center d-flex align-items-center justify-content-between">
+             <div class="iq-post-likes text-left">
+               <a href="#"><i class="ri-heart-line mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-comments text-left ml-2 mr-2">
+               <a href="#"><i class="ri-chat-1-fill mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-save text-left">
+               <a href="#"><i class="ri-save-line mr-2"></i>6.2K</a>
+             </div>
+           </div>
+         </div>
+       </li>
+       <li ngxSlickItem class="d-flex align-items-center">
+         <div class="post-image">
+           <a href="javascript:void();">
+             <img src="assets/images/page-img/p-5.jpg" alt="post-image" class="img-fluid rounded">
+           </a>
+         </div>
+         <div class="post-content pl-3">
+           <h4>How to Repost </h4>
+           <h3 class="mt-2 mb-2">89.64%</h3>
+           <div class="iq-progress-bar mb-3">
+             <span class="bg-primary" data-percent="90"></span>
+           </div>
+           <div class="text-center d-flex align-items-center justify-content-between">
+             <div class="iq-post-likes text-left">
+               <a href="#" class="text-secondary"><i class="ri-heart-line mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-comments text-left ml-2 mr-2">
+               <a href="#" class="text-secondary"><i class="ri-chat-1-fill mr-2"></i>6.2K</a>
+             </div>
+             <div class="iq-post-save text-left">
+               <a href="#" class="text-secondary"><i class="ri-save-line mr-2"></i>6.2K</a>
+             </div>
+           </div>
+         </div>
+       </li>
+     </ngx-slick-carousel>
+   </app-iq-card>
+  </div>
+</div>

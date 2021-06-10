@@ -1,0 +1,159 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12">
+        <app-iq-card [isCardBody]=false>
+          <div card-header class="iq-header-title">
+            <h4 class="card-title">Project Management</h4>
+          </div>
+          <div card-header class="iq-card-header-toolbar d-flex align-items-center text-right">
+            <button type="button" class="btn btn-primary" (click)="openBoardForm('', boardModel)">New Board</button>
+          </div>
+        </app-iq-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 track">
+        <div class="bg-transparent shadow-none mr-3 w-25 iq-card"
+             *ngFor="let board of boards; let boardIndex=index" >
+          <div class="iq-card-header d-flex justify-content-between {{board.color}}">
+            <div class="iq-header-title">
+              <h5 class="text-white">{{board.title}}</h5>
+            </div>
+            <div class="iq-card-header-toolbar d-flex align-items-center" (click)="openBoardForm(board.id, boardModel)">
+              <i class="ri-ball-pen-line mr-0 font-size-18" role="button" tabindex="0"></i>
+            </div>
+          </div>
+          <div class="card-body iq-card-body pro-bg-card" dnd-droppable
+               (onDropSuccess)="dragTask($event, board.id)">
+            <div *ngFor="let task of tasks | searchFilter:{'boardId': board.id}; let taskIndex = index"
+                 dnd-draggable  [dragEnabled]="true" [dragData]="task.id">
+              <div class="iq-card ">
+                <div class="iq-card-header d-flex justify-content-between pro-task-bg-card">
+                  <div class="iq-header-title">
+                     <h5 class="card-title text-muted">{{ task.name }}</h5>
+                     <h6 class="text-muted">{{ task.date }}</h6>
+                  </div>
+                  <div class="iq-card-header-toolbar d-flex align-items-center">
+                     <a href="#" class="badge iq-bg-primary mr-2 p-2" *ngIf="task.status===0">Low</a>
+                    <a href="#" class="badge iq-bg-warning mr-2 p-2" *ngIf="task.status===1">High</a>
+                    <a href="#" class="badge iq-bg-danger mr-2 p-2" *ngIf="task.status===2">Critical</a>
+                  </div>
+                </div>
+                <div class="card-body iq-card-body pro-task-bg-card">
+                  <p class="font-size-12">{{ task.description }}</p>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <i class="ri-ball-pen-line font-size-18" role="button" tabindex="0"></i>
+                      <i class="ri-attachment-line font-size-18 ml-2"></i>
+                      <i class="ri-eye-line font-size-18 ml-2"></i>
+                      <span><small>54</small></span>
+                      <i class="ri-chat-4-line font-size-18 ml-2"></i>
+                      <span><small>36</small></span>
+                      <i class="ri-close-circle-line font-size-18 ml-2"></i>
+                    </div>
+                  </div>
+                  <div class="mt-2 progress" style="height: 4px;">
+                    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" class="progress-bar iq-border-radius-10 bg-success" style="width: 40%;">
+                      <span> </span>
+                    </div>
+                    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" class="progress-bar iq-border-radius-10 bg-warning" style="width: 80%;">
+                      <span> </span>
+                    </div>
+                    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" class="progress-bar iq-border-radius-10 bg-danger" style="width: 50%;">
+                      <span> </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn- iq-bg-primary btn-lg btn-block" (click)="openTaskForm(board.id, taskModel)">Add Item</button>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+<ng-template #boardModel let-c="close" let-d="dismiss">
+  <form #boardForm="ngForm" (ngSubmit)="boardForm.form.valid && saveBoard(boardForm)" novalidate>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Save Board</h4>
+      <button type="button" class="float-right close" modal-close aria-label="Close" (click)="modalRef.hide()">
+        <i class="ri-close-fill"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Title <span class="text-danger">*</span></label>
+        <input type="text" name="title" class="rounded form-control"
+               [(ngModel)]="selectedBoard.title" #title="ngModel"
+               [ngClass]="{ 'is-invalid': boardForm.submitted && title.invalid }"
+               placeholder="Enter the project name" class="rounded form-control" required/>
+        <div class="invalid-feedback">
+          <span>Title is required.</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn iq-bg-primary btn-none"(click)="modalRef.hide()">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</ng-template>
+<ng-template #taskModel let-c="close" let-d="dismiss">
+  <form #taskForm="ngForm" (ngSubmit)="taskForm.form.valid && addTask(taskForm)" novalidate>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title1">Add Task</h4>
+      <button type="button" class="float-right close" modal-close aria-label="Close" (click)="modalRef.hide()">
+        <i class="ri-close-fill"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Name <span class="text-danger">*</span></label>
+        <input type="text" name="name" class="rounded form-control"
+               [(ngModel)]="selectedTask.name" #name="ngModel"
+               [ngClass]="{ 'is-invalid': taskForm.submitted && name.invalid }"
+               placeholder="Enter the task name" required/>
+        <div class="invalid-feedback">
+          <span>Name is required.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description <span class="text-danger">*</span></label>
+        <input type="text" name="description" class="rounded form-control"
+               [(ngModel)]="selectedTask.description" #desc="ngModel"
+               [ngClass]="{ 'is-invalid': taskForm.submitted && desc.invalid }"
+               placeholder="Enter the project name" required/>
+        <div class="invalid-feedback">
+          <span>Description is required.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Date <span class="text-danger">*</span></label>
+        <input type="date" name="date" class="rounded form-control"
+               [(ngModel)]="selectedTask.date" #date="ngModel"
+               [ngClass]="{ 'is-invalid': taskForm.submitted && date.invalid }"
+               placeholder="Enter the project name" required/>
+        <div class="invalid-feedback">
+          <span>Date is required.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="d-block">Priority <span class="text-danger">*</span></label>
+        <div class="custom-control custom-control-inline custom-radio"
+             *ngFor="let priority of priorities; let priorityIndex=index">
+          <input type="radio" name="status" class="custom-control-input"
+                  [id]="'radio_'+priorityIndex"
+                 [(ngModel)]="selectedTask.status" #status="ngModel"
+                 [ngClass]="{ 'is-invalid': taskForm.submitted && status.invalid }"/>
+          <label class="custom-control-label" [for]="'radio_'+priorityIndex">{{priority}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn iq-bg-primary btn-none"(click)="modalRef.hide()">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</ng-template>

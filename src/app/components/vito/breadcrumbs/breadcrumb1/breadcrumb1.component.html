@@ -1,0 +1,11 @@
+<div class="navbar-breadcrumb">
+  <h5 class="mb-0">{{ title }}</h5>
+  <nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+      <li *ngFor="let item of items" class="breadcrumb-item {{ (item.isActive) ? 'active' : '' }}">
+        <span *ngIf="item.isActive">{{ item.label }}</span>
+        <a *ngIf="!item.isActive" [href]="item.link">{{ item.label }}</a>
+      </li>
+    </ul>
+  </nav>
+</div>

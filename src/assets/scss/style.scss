@@ -1,0 +1,64 @@
+
+@import "../css/variable.css";
+
+@mixin light-body {
+  font-family: 'Muli', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8; padding: 0; margin: 0; color: var(--iq-secondary); background: var(--iq-bg-light-color);
+}
+@mixin dark-body {
+  font-family: 'Muli', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8; padding: 0; margin: 0; color: #8c91b6; background: var(--iq-bg-dark-color);
+}
+@mixin rtl-light-body {
+  font-family: 'Muli', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8; padding: 0; margin: 0; color: var(--iq-secondary); background: var(--iq-bg-light-color);
+}
+@mixin rtl-dark-body {
+  font-family: 'Muli', sans-serif; font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8; padding: 0; margin: 0; color: #8c91b6; background: var(--iq-bg-dark-color);
+}
+
+
+[dir="ltr"] {
+  @import "../css/light/typography";
+  @import "../css/light/style";
+  @import "../css/light/responsive";
+
+  .dark{
+    @import "../css/dark/typography";
+    @import "../css/dark/style";
+    @import "../css/dark/responsive";
+    @include dark-body;
+    .table{
+      color: #fff !important;
+    }
+    .iq-right-fixed { background: #252549; }
+  }
+
+  .light{
+    @include light-body;
+  }
+}
+
+.iq-global-search>ul>li a, .slick-arrow, .breadcrumb-item>a{
+  color: var(--iq-primary);
+  &:hover{
+    color: var(--iq-primary);
+  }
+}
+
+[dir="rtl"]{
+  @import "../css/rtl/light/style";
+  @import "../css/rtl/light/typography";
+  @import "../css/rtl/light/responsive";
+  body {
+    @include rtl-light-body;
+  }
+  .dark{
+    @import "../css/rtl/dark/typography";
+    @import "../css/rtl/dark/style";
+    @import "../css/rtl/dark/responsive";
+    @include dark-body;
+    .table{
+      color: #fff !important;
+    }
+    .iq-right-fixed { background: #252549; }
+  }
+
+}

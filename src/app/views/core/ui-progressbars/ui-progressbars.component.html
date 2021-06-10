@@ -1,0 +1,129 @@
+<div class="row">
+  <div class="col-sm-12 col-lg-6">
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Examples</h4>
+     </div>
+     <p>Progress components are built with two HTML elements, some CSS to set the width, and a few attributes. We don’t use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress">the HTML5 <code>&lt;progress&gt;</code> element</a>, ensuring you can stack progress bars, animate them, and place text labels over them.</p>
+      <ul>
+        <li>We use the <code>.progress</code> as a wrapper to indicate the max value of the progress bar.</li>
+        <li>We use the inner <code>.progress-bar</code> to indicate the progress so far.</li>
+        <li>The <code>.progress-bar</code> requires an inline style, utility class, or custom CSS to set their width.</li>
+        <li>The <code>.progress-bar</code> also requires some <code>role</code> and <code>aria</code> attributes to make it accessible.</li>
+      </ul>
+      <p>Put that all together, and you have the following examples.</p>
+      <div class="progress mb-3">
+        <progressbar [value]="0"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="25"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="50"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="75"></progressbar>
+      </div>
+      <div class="progress">
+        <progressbar [value]="100"></progressbar>
+      </div>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Height</h4>
+     </div>
+     <p>We only set a <code>height</code> value on the <code>.progress</code>, so if you change that value the inner <code>.progress-bar</code> will automatically resize accordingly.</p>
+      <div class="progress mb-3" style="height: 3px;">
+        <progressbar [value]="25">25%</progressbar>
+      </div>
+      <div class="progress mb-3" style="height: 10px;">
+        <progressbar [value]="50">50%</progressbar>
+      </div>
+      <div class="progress mb-3" style="height: 15px;">
+        <progressbar [value]="75">75%</progressbar>
+      </div>
+      <div class="progress">
+        <progressbar [value]="99">99%</progressbar>
+      </div>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Animated stripes</h4>
+     </div>
+     <p>The striped gradient can also be animated. Add <code>.progress-bar-animated</code> to <code>.progress-bar</code> to animate the stripes right to left via CSS3 animations.</p>
+      <div class="progress mb-3">
+        <progressbar max="100" [value]="75" type="primary" [striped]="true" [animate]="true"><i></i></progressbar>
+      </div>
+      <div class="progress">
+        <progressbar max="100" [value]="75" type="success" [striped]="true" [animate]="true"><i></i></progressbar>
+      </div>
+    </app-iq-card>
+  </div>
+  <div class="col-sm-12 col-lg-6">
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Labels</h4>
+     </div>
+     <p>Add labels to your progress bars by placing text within the <code>.progress-bar</code>.</p>
+      <div class="progress mb-3">
+        <progressbar [value]="25">25%</progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="50">50%</progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="75">75%</progressbar>
+      </div>
+      <div class="progress">
+        <progressbar [value]="99">99%</progressbar>
+      </div>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Backgrounds</h4>
+     </div>
+     <p>Use background utility classes to change the appearance of individual progress bars.</p>
+      <div class="progress mb-3">
+        <progressbar type="success" [value]="25"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar type="info" [value]="50"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar type="warning" [value]="50"></progressbar>
+      </div>
+      <div class="progress">
+        <progressbar type="danger" [value]="100"></progressbar>
+      </div>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Multiple bars</h4>
+     </div>
+     <p>Include multiple progress bars in a progress component if you need.</p>
+      <div class="progress">
+        <progressbar class="progress" [value]="stacked" [max]="100"></progressbar>
+      </div>
+    </app-iq-card>
+    <app-iq-card>
+      <div card-header class="iq-header-title">
+        <h4 class="card-title">Striped</h4>
+     </div>
+     <p>Add <code>.progress-bar-striped</code> to any <code>.progress-bar</code> to apply a stripe via CSS gradient over the progress bar’s background color.</p>
+      <div class="progress mb-3">
+        <progressbar [value]="10" type="primary" [striped]="true"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="25" type="success" [striped]="true"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="50" type="info" [striped]="true"></progressbar>
+      </div>
+      <div class="progress mb-3">
+        <progressbar [value]="75" type="warning" [striped]="true"></progressbar>
+      </div>
+      <div class="progress">
+        <progressbar [value]="100" type="danger" [striped]="true"></progressbar>
+      </div>
+    </app-iq-card>
+</div>

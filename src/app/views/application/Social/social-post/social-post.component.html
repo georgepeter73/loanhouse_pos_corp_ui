@@ -1,0 +1,103 @@
+<app-iq-card [cardHeaderClass]="false">
+  <div class="iq-card-body p-0">
+    <div class="user-post-data p-3">
+      <div class="d-flex flex-wrap">
+        <div class="media-support-user-img mr-3">
+          <img class="rounded-circle img-fluid" [src]="post.user.profile" alt="">
+        </div>
+        <div class="media-support-info mt-2">
+          <h5 class="mb-0"><a href="#" class="">{{post.user.name}}</a></h5>
+          <p class="mb-0 text-primary">colleages</p>
+        </div>
+        <div class="iq-card-header-toolbar d-flex align-items-center">
+          <div class="dropdown">
+              <span class="dropdown-toggle text-primary" id="dropdownMenuButton52" data-toggle="dropdown">
+                <a href="#" class="text-secondary"> 2 hrs <i class="ri-more-2-line ml-3"></i></a>
+              </span>
+            <div class="dropdown-menu dropdown-menu-right p-0" >
+              <div class="dropdown-item" (click)="isFollowed(!post.is_follow)">
+                <span *ngIf="post.is_follow">
+                  <i class="ri-user-follow-line mr-2">  Unfollow</i>
+                </span>
+                <span *ngIf="!post.is_follow">
+                  <i class="ri-user-unfollow-line mr-2">  Follow</i>
+                </span>
+              </div>
+              <a class="dropdown-item" href="#"><i class="ri-share-forward-line mr-2"></i>Share</a>
+              <a class="dropdown-item" href="#"><i class="ri-file-copy-line mr-2"></i>Copy Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>{{ post.description }}</p>
+    <div class="user-post" *ngIf="post.images.length > 0">
+      <a *ngFor="let image of post.images">
+        <img [src]="image" alt="post-image" class="img-fluid" />
+      </a>
+    </div>
+    <div class="comment-area p-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center feather-icon mr-3" (click)="isLiked(!post.is_liked)">
+            <a><i [class]="'text-danger '+(post.is_liked ? 'ri-heart-fill' : 'ri-heart-line')"></i></a>
+            <span class="ml-1">{{post.likes}}</span>
+          </div>
+          <div class="d-flex align-items-center message-icon">
+            <a><i class="ri-chat-4-line text-primary"></i></a>
+            <span class="ml-1">{{ post.comments == null ? '':post.comments.length }}</span>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="iq-media-group">
+            <a href="javascript:void(0);" class="iq-media">
+              <img class="img-fluid avatar-40 rounded-circle" src="assets/images/user/05.jpg" alt="">
+            </a>
+            <a href="javascript:void(0);" class="iq-media">
+              <img class="img-fluid avatar-40 rounded-circle" src="assets/images/user/06.jpg" alt="">
+            </a>
+            <a href="javascript:void(0);" class="iq-media">
+              <img class="img-fluid avatar-40 rounded-circle" src="assets/images/user/07.jpg" alt="">
+            </a>
+            <a href="javascript:void(0);" class="iq-media">
+              <img class="img-fluid avatar-40 rounded-circle" src="assets/images/user/08.jpg" alt="">
+            </a>
+            <a href="javascript:void(0);" class="iq-media">
+              <img class="img-fluid avatar-40 rounded-circle" src="assets/images/user/09.jpg" alt="">
+            </a>
+          </div>
+          <span class="ml-2">+140 more</span>
+        </div>
+      </div>
+      <hr>
+      <ul class="post-comments p-0 m-0">
+        <li *ngFor="let postComment of post.comments; let postCommentIndex = index">
+          <div class="d-flex flex-wrap">
+            <div class="user-img">
+              <img [src]="postComment.image" alt="userimg" class="avatar-35 rounded-circle img-fluid">
+            </div>
+            <div class="comment-data-block ml-3">
+              <h6>Paul Molive</h6>
+              <p class="mb-0">{{postComment.user.msg}}</p>
+              <div class="d-flex flex-wrap align-items-center comment-activity">
+                <a (click)="isLikedComment(postCommentIndex, !postComment.is_commentLike)">
+                  <span *ngIf="postComment.is_commentLike" class="text-primary">like</span>
+                  <span *ngIf="!postComment.is_commentLike" class="text-secondary">unlike</span>
+                </a>
+                <a>reply</a>
+                <a>translate</a>
+                <span>5 min</span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <form class="comment-text d-flex align-items-center mt-3" action="javascript:void(0);">
+        <input type="text" class="form-control rounded" name="postComment" #postComment="ngModel"  (keyup.enter)="saveComment(postCommentMsg)" [(ngModel)]="postCommentMsg"  placeholder="Lovely!">
+        <div class="comment-attagement d-flex">
+          <a><i class="ri-send-plane-line mr-2" (click)="saveComment(postCommentMsg)"></i></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</app-iq-card>
