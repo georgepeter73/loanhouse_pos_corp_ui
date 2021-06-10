@@ -1,17 +1,16 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import Auth from '@aws-amplify/auth';
 import API from '@aws-amplify/api-graphql';
 import RestAPI from '@aws-amplify/api-rest';
 import PubSub from '@aws-amplify/pubsub';
-import amplify from './aws-exports';
-Auth.configure(amplify);
-API.configure(amplify);
-RestAPI.configure(amplify);
-PubSub.configure(amplify);
+
+Auth.configure(environment.aws_amplify);
+API.configure(environment.aws_amplify);
+RestAPI.configure(environment.aws_amplify);
+PubSub.configure(environment.aws_amplify);
 RestAPI.configure({
   API: {
     endpoints: [

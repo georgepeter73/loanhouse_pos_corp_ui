@@ -6,36 +6,56 @@ export const environment = {
   production: false,
   apiEndpoint: 'http://localhost:3000',
   mapbox: {
-    accessToken: 'pk.eyJ1IjoiZ29sZGVubWFjZWRldiIsImEiOiJjazBnYnFxb3AwNWdqM2JuNWRwazZxMWY0In0._I3zpcM9QTHNqcXWjWpD6Q',
-    mapStyle: 'mapbox://styles/goldenmacedev/ck49vpeap08b61cnubglcag7l'
+    accessToken: '',
+    mapStyle: ''
   },
   firebase: {
-    apiKey: 'AIzaSyBnwAys1kCvXdyI_rPO1fcr0gyozVAU6vI',
-    authDomain: 'vito-dashboard-angular.firebaseapp.com',
-    databaseURL: 'https://vito-dashboard-angular.firebaseio.com',
-    projectId: 'vito-dashboard-angular',
-    storageBucket: 'vito-dashboard-angular.appspot.com',
-    messagingSenderId: '611289891383'
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: ''
   },
   firebaseStorage: {
-    apiKey: 'AIzaSyDskBaULTSFGPRy3AvOpMxVlO6e6u2CFdE',
-    authDomain: 'vito-dashboard-vue.firebaseapp.com',
-    databaseURL: 'https://vito-dashboard-vue.firebaseio.com',
-    projectId: 'vito-dashboard-vue',
-    storageBucket: 'vito-dashboard-vue.appspot.com',
-    messagingSenderId: '174815027215',
-    appId: '1:174815027215:web:1ee7e52a527158bb35037a'
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: ''
   },
   auth0: {
-    domain: 'dev-6u-3fb22.auth0.com',
-    clientID: '6ILO4QOBu1uRLBtS9wOkoh6f5ynrtVUo',
+    domain: '',
+    clientID: '',
     // make sure this line is contains the port: 8080
-    redirectUri: 'http://localhost:8080/callback',
+    redirectUri: '',
     // we will use the api/v2/ to access the user information as payload
-    audience: 'https://dev-6u-3fb22.auth0.com/api/v2/',
-    responseType: 'token id_token',
-    scope: 'openid profile'
+    audience: '',
+    responseType: '',
+    scope: ''
+  },
+
+   aws_amplify: {
+    "aws_project_region": "us-east-1",
+    "aws_cognito_identity_pool_id": "us-east-1:42af267a-8dd6-4593-81cb-3e271644c0d3",
+    "aws_cognito_region": "us-east-1",
+    "aws_user_pools_id": "us-east-1_52d9hDELx",
+    "aws_user_pools_web_client_id": "86flmjobolbt3cuot7kufs03r",
+    "oauth": {},
+    "aws_appsync_graphqlEndpoint": "https://45gxwox6lbdfnkp3v7burp44sa.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_region": "us-east-1",
+    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
+    "aws_cloud_logic_custom": [
+      {
+        "name": "api7faf28dc",
+        "endpoint": "https://3aqoh4liw6.execute-api.us-east-1.amazonaws.com/dev",
+        "region": "us-east-1"
+      }
+    ]
   }
+
 };
 
 /*

@@ -36,7 +36,6 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {ButtonRendererComponent} from './custom/button-renderer.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { I18nModule } from './i18n/i18n.module';
-import {LoginComponent} from './login/login.component';
 import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
 import {HomeComponent} from './home/home.component';
 import {CarouselModule} from 'ngx-owl-carousel-o';
@@ -45,7 +44,6 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
     AppComponent,
     ErrorPageComponent,
     ButtonRendererComponent,
-    LoginComponent,
     HomeComponent
   ],
   imports: [

@@ -1,8 +1,7 @@
 import {ChangeDetectorRef, Component, NgZone, OnDestroy, OnInit} from '@angular/core';
-import {Auth0Service} from '../../../../services/auth0.service';
 import {AuthState, CognitoUserInterface, onAuthUIStateChange} from '@aws-amplify/ui-components';
 import {Router} from '@angular/router';
-import {AuthService} from '../../../../auth/auth.service';
+import {AuthService} from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',

@@ -7,7 +7,7 @@ import {Language} from '../../../../models/language';
 import * as ThemeState from '../../../../store/selectes/theme.selectors';
 import {TranslateService} from '@ngx-translate/core';
 import {PluginsService} from '../../../../plugins.service';
-import {AuthService} from '../../../../auth/auth.service';
+import {AuthService} from '../../../../services/auth.service';
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-nav-bar1',
