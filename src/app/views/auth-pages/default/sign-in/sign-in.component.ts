@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit, OnDestroy {
       this.ref.detectChanges();
       if(this.signedIn){
         this.ngZone.run(() => {
-          this.router.navigate(["/"]);
+          this.router.navigate(["/home-1"]);
         });
       }
     });

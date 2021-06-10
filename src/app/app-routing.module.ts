@@ -7,13 +7,11 @@ import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home-1', pathMatch: 'full' },
+  { path: '', redirectTo: '/auth/sign-in', pathMatch: 'full' },
   { path: '', loadChildren: () => import('./layouts/layout1/layout1.module').then(m => m.Layout1Module) },
   { path: 'home-1', loadChildren: () => import('./layouts/layout2/layout2.module').then(m => m.Layout2Module) },
   { path: 'page', loadChildren: () => import('./layouts/blank-layout/blank-layout.module').then(m => m.BlankLayoutModule) },
   { path: 'auth', loadChildren: () => import('./layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule) },
-  { path: 'home123', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login123', component: LoginComponent },
   { path: '**', component: ErrorPageComponent },
 
 ];
