@@ -1,0 +1,148 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-loanhousebase2-prod-203347-authRole",
+      "UnauthRoleArn": "arn:aws:iam::428404109554:role/amplify-loanhousebase2-prod-203347-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::428404109554:role/amplify-loanhousebase2-prod-203347-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-loanhousebase2-prod-203347-deployment",
+      "UnauthRoleName": "amplify-loanhousebase2-prod-203347-unauthRole",
+      "StackName": "amplify-loanhousebase2-prod-203347",
+      "StackId": "arn:aws:cloudformation:us-east-1:428404109554:stack/amplify-loanhousebase2-prod-203347/b05c3410-ca4c-11eb-b5d7-12409d333fbd",
+      "AmplifyAppId": "d22ofkxgd87uwo",
+      "AuthTriggerTemplateURL": ""
+    }
+  },
+  "auth": {
+    "loanhousebase2874899ec": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loanhousebase2-prod-203347-deployment/amplify-cfn-templates/auth/loanhousebase2874899ec-cloudformation-template.yml",
+        "logicalId": "authloanhousebase2874899ec"
+      },
+      "lastPushTimeStamp": "2021-06-11T00:40:43.750Z",
+      "output": {
+        "UserPoolId": "us-east-1_jqjNmBnyJ",
+        "AppClientIDWeb": "11sdd9lslk4svee10k3h2ddm83",
+        "AppClientID": "3sa91rhn7th3vp5heve5q33uns",
+        "IdentityPoolId": "us-east-1:b6fe43e9-a5a9-4e2c-89b2-9b201a88923d",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:428404109554:userpool/us-east-1_jqjNmBnyJ",
+        "IdentityPoolName": "loanhousebase2874899ec_identitypool_874899ec__prod",
+        "UserPoolName": "loanhousebase2874899ec_userpool_874899ec"
+      },
+      "lastPushDirHash": "WARZwGhcL4XQ6wvBXvPa6JfYi8Q="
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "loanhousebase2874899ec",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loanhousebase2-prod-203347-deployment/amplify-cfn-templates/auth/template.json",
+        "logicalId": "authuserPoolGroups"
+      },
+      "lastPushTimeStamp": "2021-06-11T00:40:43.750Z",
+      "output": {
+        "loanhouseuserpoolGroupRole": "arn:aws:iam::428404109554:role/us-east-1_jqjNmBnyJ-loanhouseuserpoolGroupRole"
+      },
+      "lastPushDirHash": "39Hp6Mn6IlITUzpv04I5+sxSZgE="
+    }
+  },
+  "api": {
+    "loanhousebase2": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authloanhousebase2874899ec"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "xwjbnpplnzdgjbrtmrleqm4wiq",
+        "GraphQLAPIEndpointOutput": "https://z6hgujxtdfckjfukkv74qtiaj4.appsync-api.us-east-1.amazonaws.com/graphql"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loanhousebase2-prod-203347-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiloanhousebase2"
+      },
+      "lastPushTimeStamp": "2021-06-11T00:40:43.750Z",
+      "lastPushDirHash": "mPaGxTcJeBsrDxv6loWlryjtnlU="
+    },
+    "api7faf28dc": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "loanhousebase24361b663",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loanhousebase2-prod-203347-deployment/amplify-cfn-templates/api/api7faf28dc-cloudformation-template.json",
+        "logicalId": "apiapi7faf28dc"
+      },
+      "lastPushTimeStamp": "2021-06-11T00:40:43.750Z",
+      "output": {
+        "ApiName": "api7faf28dc",
+        "RootUrl": "https://1xpx1hgkm4.execute-api.us-east-1.amazonaws.com/prod",
+        "ApiId": "1xpx1hgkm4"
+      },
+      "lastPushDirHash": "6vOyT59s4QKuaCQnUiuq531AOTA="
+    }
+  },
+  "function": {
+    "loanhousebase24361b663": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-06-11T00:34:53.060Z",
+      "lastPackageTimeStamp": "2021-06-11T00:34:53.075Z",
+      "distZipFilename": "loanhousebase24361b663-656276552b5a5644364f-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-loanhousebase2-prod-203347-deployment",
+        "s3Key": "amplify-builds/loanhousebase24361b663-656276552b5a5644364f-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-loanhousebase2-prod-203347-deployment/amplify-cfn-templates/function/loanhousebase24361b663-cloudformation-template.json",
+        "logicalId": "functionloanhousebase24361b663"
+      },
+      "lastPushTimeStamp": "2021-06-11T00:40:43.750Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:428404109554:function:loanhousebase24361b663-prod",
+        "Name": "loanhousebase24361b663-prod",
+        "LambdaExecutionRole": "loanhousebase2LambdaRole66dd73c7-prod"
+      },
+      "lastPushDirHash": "L8WkO8lpICckkLtKavw39dSZ5bY="
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "service": "amplifyhosting",
+      "type": "cicd",
+      "lastPushTimeStamp": "2021-06-11T00:34:23.210Z",
+      "cicd": "cicd"
+    }
+  }
+}

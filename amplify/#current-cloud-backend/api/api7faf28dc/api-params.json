@@ -1,0 +1,35 @@
+{
+  "paths": [
+    {
+      "name": "/customers",
+      "lambdaFunction": "loanhousebase24361b663",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/customers"
+    }
+  ],
+  "resourceName": "api7faf28dc",
+  "apiName": "api7faf28dc",
+  "functionArns": [
+    {
+      "lambdaFunction": "loanhousebase24361b663"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-loanhousebase2-dev-93243-authRole",
+    "unAuthRoleName": "amplify-loanhousebase2-dev-93243-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "loanhousebase24361b663",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

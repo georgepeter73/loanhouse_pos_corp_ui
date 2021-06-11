@@ -1,0 +1,10 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+type Client @aws_cognito_user_pools @aws_api_key{
+  id: ID!
+  first_name: String
+  last_name: String
+}
