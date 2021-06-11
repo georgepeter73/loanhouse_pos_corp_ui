@@ -3,6 +3,7 @@ export class Color {
   primaryLight?: string;
   bodyBgLight?: string;
   bodyBgDark?: string;
+  default?: boolean;
 
   constructor(category) {
     {
@@ -10,6 +11,8 @@ export class Color {
       this.primaryLight = category.primaryLight || 'rgba(255,161,164,1)';
       this.bodyBgLight = category.bodyBgLight || '#fcf6f8';
       this.bodyBgDark = category.bodyBgDark || '#1d203f';
+      this.default = false;
+
     }
   }
 }

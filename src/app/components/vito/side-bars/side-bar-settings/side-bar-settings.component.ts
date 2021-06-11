@@ -25,6 +25,11 @@ export class SideBarSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    const defaultColor = this.themeColors.find(c => c.default === true);
+    document.documentElement.style.setProperty('--iq-primary', defaultColor.primary);
+    document.documentElement.style.setProperty('--iq-primary-light', defaultColor.primaryLight);
+    document.documentElement.style.setProperty('--iq-bg-light-color', defaultColor.bodyBgLight);
+    this.store.dispatch(new SetThemeColor(defaultColor.primary));
 
   }
 

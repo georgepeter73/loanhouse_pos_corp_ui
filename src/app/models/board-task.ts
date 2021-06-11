@@ -15,7 +15,7 @@ export class BoardTask {
       this.name = board.name || '';
       this.boardId = board.boardId || '1';
       this.date = board.date || '25/2/2019';
-      this.userId = board.userId || '1';
+      this.userId = board.userId || '2';
       this.description = board.description || '';
       this.status = board.status || 1;
     }
