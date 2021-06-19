@@ -1,107 +1,27 @@
-# LoanHouse Dashboard Angular Testing
+# AngularAmplifyDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Working Steps
+## Code scaffolding
 
-#### Create new Layout page
-1. Create layout module `ng g m layouts/layout2 --routing=true`
-2. Create default index component `ng g c layouts/layout2/index --export=true -s --skipTests=true --viewEncapsulation=None`
-3. Add Route in `layout2-routing.module.ts` 
-    ```
-    const routes: Routes = [
-      {
-        path: '',
-        component: IndexComponent,
-        children: [
-        ]
-      }
-    ];
-    ```
-4. After append routes in `app-routing.module.ts`
-    ```
-    const routes: Routes = [
-      { path: 'layout2', loadChildren: './layout2/layout2.module#Layout2Module' }
-    ];
-    ```
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-#### Create new Page
-2. Create page component `ng g c views/``page-name --export=true -s --skipTests=true`
-3. Add Route in `views-routing.module.ts` 
-    ```
-    const routes: Routes = [
-      {
-        path: 'page-name',
-        component: PageNameComponent
-      }
-    ];
-    ```
+## Build
 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Running unit tests
 
-#### Create new Component
-Create component 
-  
-   ` ng g c components/vito/component-name --export=true -s --skipTests=true`
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Export Component
+## Running end-to-end tests
 
-    @NgModule({
-      declarations: [LoaderComponent, ScrollTopComponent],
-      exports: [
-        LoaderComponent,
-        ScrollTopComponent,
-        /** --- Add Your Component -- **/
-      ],
-    
-#### Add new CSS & JS
- Append CSS in **angular.json** 
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-        "architect": {
-                 "build": {
-                   "builder": "@angular-devkit/build-angular:browser",
-                   "options": {
-                     .....
-                     "styles": [
-                       "src/styles.css",
-                       /* -- ADD CSS -- */
-                     ],
+## Further help
 
-
- Append JS in **angular.json** 
-
-        "architect": {
-                 "build": {
-                   "builder": "@angular-devkit/build-angular:browser",
-                   "options": {
-                     .....
-                     "scripts": [
-                        "node_modules/jquery/dist/jquery.min.js",
-                        /* -- ADD JS -- */
-                     ],
-
-#### Create new Pipe
-Create component 
-  
-   ` ng g p pipes/pipe-name --skipTests=true`
-
-
-## Generate Redux state
-
-####Action
-    ng generate action store/actions/<action-name>
-    
-####Reducer
-    ng generate reducer store/reducers/<reducer-name>
-####Selector
-     ng generate selector store/selectes/<selectors-name>
-    
-    
-## Build App
-    ng build --aot=true --extractCss=true --prod=true --serviceWorker=true
-####After
-    firebase deploy
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

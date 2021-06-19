@@ -1,13 +1,13 @@
 {
-  "projectName": "LoanHouseBase2",
+  "projectName": "angularamplifydemo",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
     "framework": "angular",
     "config": {
       "SourceDir": "src",
-      "DistributionDir": "dist/Loanhouse-pos-base2",
-      "BuildCommand": "npm run-script build",
+      "DistributionDir": "dist/angular-amplify-demo",
+      "BuildCommand": "npm.cmd run-script build",
       "StartCommand": "ng serve"
     }
   },
