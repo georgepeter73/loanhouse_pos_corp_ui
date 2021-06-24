@@ -18,6 +18,15 @@
     "paths": {
       "crypto": [
         "../node_modules/crypto-js"
+      ],
+      "@modules/*": [
+        "app/modules/*"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
+      "@layouts/*": [
+        "app/layouts/*"
       ]
     }
   },

@@ -8,13 +8,18 @@ import { HomeComponent } from './home/home.component';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import 'regenerator-runtime/runtime';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons'
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { AuthLayoutComponent } from '@layouts/auth/auth-layout/auth-layout.component';
+import { DashboardLayoutComponent } from '@layouts/dashboard/dashboard-layout/dashboard-layout.component'
+import { NbSidebarService } from '@nebular/theme';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    AuthLayoutComponent,
+    DashboardLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +29,10 @@ import { NbEvaIconsModule } from '@nebular/eva-icons'
     NbThemeModule.forRoot({ name: 'corporate' }),
     NbLayoutModule,
     NbEvaIconsModule,
+    NbSidebarModule,
+    NbButtonModule
   ],
-  providers: [],
+  providers: [NbSidebarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
