@@ -1,15 +1,63 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-angularamplifydemo-dev-120008-authRole",
-      "UnauthRoleArn": "arn:aws:iam::428404109554:role/amplify-angularamplifydemo-dev-120008-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::428404109554:role/amplify-angularamplifydemo-dev-120008-authRole",
+      "AuthRoleName": "amplify-loanhousebase2-dev-93243-authRole",
+      "UnauthRoleArn": "arn:aws:iam::428404109554:role/amplify-loanhousebase2-dev-93243-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::428404109554:role/amplify-loanhousebase2-dev-93243-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-angularamplifydemo-dev-120008-deployment",
-      "UnauthRoleName": "amplify-angularamplifydemo-dev-120008-unauthRole",
-      "StackName": "amplify-angularamplifydemo-dev-120008",
-      "StackId": "arn:aws:cloudformation:us-east-1:428404109554:stack/amplify-angularamplifydemo-dev-120008/cd4cbdc0-d0c7-11eb-876e-0a54954134e7",
-      "AmplifyAppId": "d1zgmenuhw18js"
+      "DeploymentBucketName": "amplify-loanhousebase2-dev-93243-deployment",
+      "UnauthRoleName": "amplify-loanhousebase2-dev-93243-unauthRole",
+      "StackName": "amplify-loanhousebase2-dev-93243",
+      "StackId": "arn:aws:cloudformation:us-east-1:428404109554:stack/amplify-loanhousebase2-dev-93243/830aa800-c602-11eb-bbe8-125f4521752f",
+      "AmplifyAppId": "d22ofkxgd87uwo"
+    },
+    "categories": {
+      "auth": {
+        "loanhousebase2874899ec": {}
+      },
+      "function": {
+        "loanhousebase24361b663": {
+          "deploymentBucketName": "amplify-loanhousebase2-dev-93243-deployment",
+          "s3Key": "amplify-builds/loanhousebase24361b663-656276552b5a5644364f-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d22ofkxgd87uwo",
+          "type": "cicd"
+        }
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-loanhousebase2-prod-203347-authRole",
+      "UnauthRoleArn": "arn:aws:iam::428404109554:role/amplify-loanhousebase2-prod-203347-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::428404109554:role/amplify-loanhousebase2-prod-203347-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-loanhousebase2-prod-203347-deployment",
+      "UnauthRoleName": "amplify-loanhousebase2-prod-203347-unauthRole",
+      "StackName": "amplify-loanhousebase2-prod-203347",
+      "StackId": "arn:aws:cloudformation:us-east-1:428404109554:stack/amplify-loanhousebase2-prod-203347/b05c3410-ca4c-11eb-b5d7-12409d333fbd",
+      "AmplifyAppId": "d22ofkxgd87uwo"
+    },
+    "categories": {
+      "auth": {
+        "loanhousebase2874899ec": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "loanhousebase24361b663": {
+          "deploymentBucketName": "amplify-loanhousebase2-prod-203347-deployment",
+          "s3Key": "amplify-builds/loanhousebase24361b663-656276552b5a5644364f-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d22ofkxgd87uwo",
+          "type": "cicd"
+        }
+      }
     }
   }
 }

@@ -1,0 +1,10 @@
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+type Client @model {
+  id: ID!
+  first_name: String
+  last_name: String
+}
