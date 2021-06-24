@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.graphQLAPI.OnCreateClientListener.subscribe({
       next: (todo:any) => {
         let newCustomer = todo.value.data.onCreateClient;
-         this.allTodos.push(newCustomer);
+        this.allTodos.push(newCustomer);
       }
     });
   }

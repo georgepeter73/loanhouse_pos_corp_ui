@@ -17,7 +17,7 @@ RestAPI.configure({
     endpoints: [
       {
         name: "api7faf28dc",
-        endpoint: "https://3aqoh4liw6.execute-api.us-east-1.amazonaws.com/dev",
+        endpoint: "https://cqgh3mhxlb.execute-api.us-east-1.amazonaws.com/default",
         custom_header: async () => {
           return { Authorization : 'token' }
           // Alternatively, with Cognito User Pools use this:
