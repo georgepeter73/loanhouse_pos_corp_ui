@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
+import { Auth } from 'aws-amplify';
 import {GraphQLAPIService} from '../services/GraphQLAPIService';
 import {RESTAPIService} from '../services/RESTAPIService';
 @Component({
@@ -50,5 +51,14 @@ export class HomeComponent implements OnInit {
      const data = await this.graphQLAPI.ListClients();
      this.allTodos = data.items;
    }
+  async  signOut() {
+    try {
+      alert("sign-out");
+      await Auth.signOut();
+
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  }
 
 }
