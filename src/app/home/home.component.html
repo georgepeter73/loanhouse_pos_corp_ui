@@ -1,0 +1,14 @@
+<div style="text-align:center">
+
+  <input type="text" #todoName>
+  <button  primary (click)="createCustomer(todoName)">Create Customer</button>
+  <button  primary (click)="callRestAPI()">API Hello World</button>{{apiHello}}
+
+  <div *ngFor="let todo of allTodos">
+    <hr>
+    <p> Name: {{todo.first_name}},{{todo.last_name}}</p>
+  </div>
+
+
+
+</div>
