@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import {GraphQLAPIService} from '../services/GraphQLAPIService';
 import {RESTAPIService} from '../services/RESTAPIService';
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(private graphQLAPI: GraphQLAPIService,
               private ref: ChangeDetectorRef,
               private ngZone: NgZone,
-              private restAPI : RESTAPIService) { }
+              private restAPI : RESTAPIService,
+              private router: Router) { }
 
     ngOnInit() {
     this.apiHello = "test";
@@ -53,9 +55,8 @@ export class HomeComponent implements OnInit {
    }
   async  signOut() {
     try {
-      alert("sign-out");
       await Auth.signOut();
-
+      this.router.navigate(["/login"])
     } catch (error) {
       console.log('error signing out: ', error);
     }

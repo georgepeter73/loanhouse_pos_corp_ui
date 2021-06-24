@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
-
+import 'regenerator-runtime/runtime'
 @NgModule({
   declarations: [
     AppComponent,

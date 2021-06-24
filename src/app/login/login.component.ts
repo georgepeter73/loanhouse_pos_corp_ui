@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     onAuthUIStateChange((authState, authData) => {
       this.signedIn = authState === AuthState.SignedIn;
-      alert(AuthState.SignOut)
       this.user = authData as CognitoUserInterface;
       this.ref.detectChanges();
       if(this.signedIn){
