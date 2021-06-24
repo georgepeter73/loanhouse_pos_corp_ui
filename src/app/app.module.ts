@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
-import 'regenerator-runtime/runtime'
+import 'regenerator-runtime/runtime';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,10 @@ import 'regenerator-runtime/runtime'
     BrowserModule,
     AppRoutingModule,
     AmplifyUIAngularModule,
+    BrowserAnimationsModule,
+    NbThemeModule.forRoot({ name: 'corporate' }),
+    NbLayoutModule,
+    NbEvaIconsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
