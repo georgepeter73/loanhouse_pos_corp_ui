@@ -33,8 +33,10 @@ export class HomeComponent implements OnInit {
        description: 'sample description'
       };
       const customer = {
+        id : '123',
         first_name: todoName.value,
         last_name: todoName.value,
+
         };
       await this.graphQLAPI.CreateClientTest(customer);
       todoName.value = null;

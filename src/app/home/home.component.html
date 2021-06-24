@@ -1,8 +1,8 @@
 <div style="text-align:center">
 
   <input type="text" #todoName>
-  <button  primary (click)="createCustomer(todoName)">Create Customer</button>
-  <button  primary (click)="callRestAPI()">API Hello World</button>{{apiHello}}
+  <button   (click)="createCustomer(todoName)">Create Customer</button>
+  <button   (click)="callRestAPI()">API Hello World</button>{{apiHello}}
 
   <div *ngFor="let todo of allTodos">
     <hr>
