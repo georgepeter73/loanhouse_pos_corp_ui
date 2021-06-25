@@ -51,7 +51,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/@nebular/theme/styles/prebuilt/default.scss"
+              "node_modules/@nebular/theme/styles/prebuilt/corporate.scss"
             ],
             "scripts": []
           },

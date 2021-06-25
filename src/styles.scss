@@ -6,3 +6,8 @@
   @include nb-theme-global();
 };
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --amplify-primary-color: #E07AF3;
+  --amplify-primary-tint: #1768ac;
+  --amplify-primary-shade: #1768ac;
+}
